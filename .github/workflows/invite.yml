@@ -15,7 +15,7 @@ jobs:
           script: |
             const body = context.payload.issue.body;
       
-            const username = body.split("\n").pop().trim();
+            const username = body.split("\n").pop().trim().replace("@","");
       
             console.log("Username:", username);
       
