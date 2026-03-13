@@ -1,0 +1,11 @@
+name: Join Organization
+description: Request to join the organization
+title: "Join request: @username"
+labels: ["join-org"]
+body:
+  - type: input
+    id: github_username
+    attributes:
+      label: GitHub Username
+      description: Your GitHub username
+      placeholder: username

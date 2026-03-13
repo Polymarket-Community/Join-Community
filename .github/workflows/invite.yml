@@ -1,0 +1,22 @@
+name: Invite User
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  invite:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Invite user
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const username = context.payload.issue.body.trim()
+
+            await github.rest.orgs.createInvitation({
+              org: context.repo.owner,
+              invitee_id: username,
+              role: "direct_member"
+            })
